@@ -1,0 +1,15 @@
+https://redbrickai.auth.us-east-1.amazoncognito.com/login?response_type=code&client_id=12q2rrrjutskb50kqgqaslndkq&redirect_uri=https://www.answer.com
+
+npx aws-api-gateway-cli-test --username anoop_kr@yahoo.com --password Ruck$a0k --user-pool-id us-east-1_oaYMf6NE3 
+--app-client-id 12q2rrrjutskb50kqgqaslndkq --cognito-region us-east-1 --identity-pool-id us-east-1:680d1c3b-6d89-4348-a8e3-2ffb5b54e509 
+--invoke-url https://pfm8f5v0sb.execute-api.us-east-1.amazonaws.com/dev --api-gateway-region us-east-1 
+--method GET --body {"content":"hello world","attachment":"hello.jpg"} --path-template users
+
+
+npx aws-api-gateway-cli-test --username='admin@example.com' --password='Passw0rd!' --user-pool-id="us-east-1_R2OmRHnI6" --app-client-id="56ed5mftev8ntqkm6uan7vj6k0" --cognito-region='us-east-1' --identity-pool-id='us-east-1:a52ef563-b9a4-4d69-bc38-60f140987bf2' --invoke-url='https://rsu5dbyb39.execute-api.us-east-1.amazonaws.com/dev' --api-gateway-region='us-east-1' --path-template='/notes'  --method='POST' --body='{"content":"hello world","attachment":"hello.jpg"}'
+
+npx aws-api-gateway-cli-test --username admin@example.com --password Passw0rd! --user-pool-id us-east-1_R2OmRHnI6 --app-client-id 56ed5mftev8ntqkm6uan7vj6k0 --cognito-region us-east-1 --identity-pool-id us-east-1:98147c84-54ba-4096-99cb-d184fea40c12 --invoke-url https://rsu5dbyb39.execute-api.us-east-1.amazonaws.com/dev --api-gateway-region us-east-1 --method GET --path-template notes
+
+aws cognito-idp sign-up  --region us-east-1 --client-id 70mno34kcd34ip8fgtvvptdpvj --username admin@example.com --password Passw0rd!
+  
+aws cognito-idp admin-confirm-sign-up --region  us-east-1 --user-pool-id us-east-1_a78tK19m1  --username admin@example.com
