@@ -1,11 +1,14 @@
 # RedbrickAIStacks
 
 This deploys three separate RedbrickAI stacks (or services) with slightly different configurations
+    
     Accounts - exposes an unauthenticated Create API
+    
     Projects - exposes entities (projects, users, billing) and apis (create, list, get, update, delete) authenticated 
               via a 'Client'-UserPool-projects. 
               All the resources deployed are tagged with the account id making billing possible to the level per account. 
               The user pool is associated with an IdentityPool as well as a client App. 
+    
     Tasks - Same as above.
     
 Basically, the account stack is always deployed.
