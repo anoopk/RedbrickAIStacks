@@ -11,6 +11,24 @@ Resources:
       AutoVerifiedAttributes:
         - email
 
+  CognitoUserPoolGroupA:
+      Type: AWS::Cognito::UserPoolGroup
+      Properties: 
+        RoleArn : arn:aws:iam::078421894314:role/redbrickai-projects-dev-CognitoAuthRole-1LTQUK2KKWYJJ
+        Description: "Tenant specific group"
+        GroupName: ${self:custom.stage}-admin
+        UserPoolId:
+          Ref: CognitoUserPool #Refers to the user pool created above        
+
+  CognitoUserPoolGroupB:
+      Type: AWS::Cognito::UserPoolGroup
+      Properties: 
+        RoleArn : arn:aws:iam::078421894314:role/redbrickai-projects-dev-CognitoAuthRole-1LTQUK2KKWYJJ
+        Description: "Tenant specific group"
+        GroupName: ${self:custom.stage}-engineer
+        UserPoolId:
+          Ref: CognitoUserPool #Refers to the user pool created above        
+          
   CognitoUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
     Properties:

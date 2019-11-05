@@ -14,15 +14,19 @@ Resources:
           ProviderName:
             Fn::GetAtt: [ "CognitoUserPool", "ProviderName" ]
             
-  # IAM roles
   CognitoIdentityPoolRoles:
-    Type: AWS::Cognito::IdentityPoolRoleAttachment
-    Properties:
-      IdentityPoolId:
-        Ref: CognitoIdentityPool
-      Roles:
-        authenticated:
-          Fn::GetAtt: [CognitoAuthRole, Arn]
+     Type: AWS::Cognito::IdentityPoolRoleAttachment
+     Properties:
+       IdentityPoolId:
+         Ref: CognitoIdentityPool
+       Roles:
+         authenticated:
+           Fn::GetAtt: [ "CognitoAuthRole" , Arn]
+       RoleMappings:
+         CognitoAuthRole:
+           IdentityProvider: !Ref CognitoUserPool
+           Type: Token
+           AmbiguousRoleResolution: AuthenticatedRole  
           
   # IAM role used for authenticated users
   CognitoAuthRole:
