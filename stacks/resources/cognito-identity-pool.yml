@@ -22,11 +22,10 @@ Resources:
        Roles:
          authenticated:
            Fn::GetAtt: [ "CognitoAuthRole" , Arn]
-       RoleMappings:
-         CognitoAuthRole:
-           IdentityProvider: !Ref CognitoUserPool
-           Type: Token
-           AmbiguousRoleResolution: AuthenticatedRole  
+       #RoleMappings: 
+       #  a2d-dev-userpool-project:
+       #    AmbiguousRoleResolution: AuthenticatedRole
+       #    Type: Token
           
   # IAM role used for authenticated users
   CognitoAuthRole:

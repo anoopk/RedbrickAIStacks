@@ -16,7 +16,7 @@ Resources:
       Properties: 
         RoleArn : arn:aws:iam::078421894314:role/redbrickai-projects-dev-CognitoAuthRole-1LTQUK2KKWYJJ
         Description: "Tenant specific group"
-        GroupName: ${self:custom.stage}-admin
+        GroupName: admin
         UserPoolId:
           Ref: CognitoUserPool #Refers to the user pool created above        
 
@@ -25,7 +25,7 @@ Resources:
       Properties: 
         RoleArn : arn:aws:iam::078421894314:role/redbrickai-projects-dev-CognitoAuthRole-1LTQUK2KKWYJJ
         Description: "Tenant specific group"
-        GroupName: ${self:custom.stage}-engineer
+        GroupName: engineer
         UserPoolId:
           Ref: CognitoUserPool #Refers to the user pool created above        
           
