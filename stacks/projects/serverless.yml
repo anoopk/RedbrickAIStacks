@@ -14,9 +14,9 @@ custom:
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}
   client: ${opt:client, self:provider.client}
-  stack: ${self:provider.stack}
+  stack: ${opt:stack, ${self:provider.stack}
   # Set the table name here so we can use it while testing locally
-  tableName: ${self:custom.client}-${self:custom.stage}-${self:provider.stack}
+  tableName: ${self:custom.client}-${self:custom.stage}
 
 provider:
   name: aws
@@ -33,6 +33,7 @@ provider:
   environment:
     tableName: ${self:custom.tableName}
     client: ${self:custom.client}
+    stack: ${self:custom.stack}
 
   #iamRoleStatements:
   #  - Effect: Allow

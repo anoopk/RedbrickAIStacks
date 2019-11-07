@@ -3,7 +3,7 @@ Resources:
     Type: AWS::Cognito::UserPool
     Properties:
       # Generate a name based on the stage
-      UserPoolName: ${self:custom.client}-${self:custom.stage}-userpool-${self:custom.stack}
+      UserPoolName: ${self:custom.client}-userpool-${self:custom.stage}
       UserPoolTags: {"client": "${self:custom.client}"}
       # Set email as an alias
       UsernameAttributes:
@@ -14,18 +14,18 @@ Resources:
   CognitoUserPoolGroupA:
       Type: AWS::Cognito::UserPoolGroup
       Properties: 
-        RoleArn : arn:aws:iam::078421894314:role/redbrickai-projects-dev-CognitoAuthRole-1LTQUK2KKWYJJ
-        Description: "Tenant specific group"
-        GroupName: admin
+        #RoleArn : arn:aws:iam::078421894314:role/redbrickai-projects-dev-CognitoAuthRole-1LTQUK2KKWYJJ
+        Description: "Project managers group"
+        GroupName: Administrators
         UserPoolId:
           Ref: CognitoUserPool #Refers to the user pool created above        
 
   CognitoUserPoolGroupB:
       Type: AWS::Cognito::UserPoolGroup
       Properties: 
-        RoleArn : arn:aws:iam::078421894314:role/redbrickai-projects-dev-CognitoAuthRole-1LTQUK2KKWYJJ
-        Description: "Tenant specific group"
-        GroupName: engineer
+        #RoleArn : arn:aws:iam::078421894314:role/redbrickai-projects-dev-CognitoAuthRole-1LTQUK2KKWYJJ
+        Description: "Task operators group"
+        GroupName: Engineers
         UserPoolId:
           Ref: CognitoUserPool #Refers to the user pool created above        
           
@@ -33,7 +33,7 @@ Resources:
     Type: AWS::Cognito::UserPoolClient
     Properties:
       # Generate an app client name based on the stage
-      ClientName: ${self:custom.client}-${self:custom.stage}-userpoolclient
+      ClientName: ${self:custom.client}-userpoolclient-${self:custom.stage}
       UserPoolId:
         Ref: CognitoUserPool
       ExplicitAuthFlows:
